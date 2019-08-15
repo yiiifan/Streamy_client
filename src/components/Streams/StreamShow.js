@@ -45,9 +45,9 @@ class StreamShow extends React.Component {
     const { title, description } = this.props.stream;
 
     return (
-      <div>
+      <div className="ui container">
         <video ref={this.videoRef} style={{ width: "100%" }} controls />
-        <h1>{title}</h1>
+        <h2 style={{ color: "#fff" }}>{title}</h2>
         <h5>{description}</h5>
       </div>
     );

@@ -1,19 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import GoogleAuth from "./GoogleAuth";
+import ImageDisplay from "./Image";
 
 const Header = () => {
   return (
-    <div className="ui secondary pointing menu">
+    <div className="ui secondary menu">
       <Link to="/" className="item">
-        Streamy
+        <h2 style={{ color: "#ffffff" }}>Streamy</h2>
       </Link>
 
       <div className="right menu" />
-      <Link to="/" className="item">
-        All Streams
-      </Link>
-      <GoogleAuth />
+      <div className="item small">
+        <GoogleAuth />
+      </div>
     </div>
   );
 };

@@ -7,13 +7,17 @@ import StreamList from "./Streams/StreamList";
 import StreamShow from "./Streams/StreamShow";
 
 import Header from "./Header";
+import Footer from "./Footer";
 import history from "../history";
 
 const App = () => {
   return (
     <div>
       <Router history={history}>
-        <div>
+        <div
+          className="ui container segment"
+          style={{ backgroundColor: "#16918F" }}
+        >
           <Header />
           <Switch>
             <Route path="/" exact component={StreamList} />
@@ -22,6 +26,8 @@ const App = () => {
             <Route path="/streams/delete/:id" exact component={StreamDelete} />
             <Route path="/streams/:id" exact component={StreamShow} />
           </Switch>
+
+          <Footer />
         </div>
       </Router>
     </div>

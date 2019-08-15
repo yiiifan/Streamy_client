@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchStreams } from "../../actions";
 import { Link } from "react-router-dom";
+import ImageDisplay from "../Image";
 
 class StreamList extends React.Component {
   componentDidMount() {
@@ -11,13 +12,17 @@ class StreamList extends React.Component {
   renderAdmin(stream) {
     if (stream.userId === this.props.currentUserId) {
       return (
-        <div className="right floated content">
-          <Link className="ui button primary" to={`/streams/edit/${stream.id}`}>
+        <div className="right floated content ui buttons">
+          <Link
+            className="ui inverted button"
+            to={`/streams/edit/${stream.id}`}
+          >
             Edit
           </Link>
+          <div className="or" />
 
           <Link
-            className="ui button negative"
+            className="ui inverted button"
             to={`/streams/delete/${stream.id}`}
           >
             Delete
@@ -36,7 +41,7 @@ class StreamList extends React.Component {
           <i className="large middle aligned icon camera" />
           <div className="content">
             <Link to={`/streams/${stream.id}`} className="header">
-              {stream.title}
+              <h4 style={{ color: "#ffffff" }}>{stream.title}</h4>
             </Link>
             <div className="description">{stream.description}</div>
           </div>
@@ -49,7 +54,7 @@ class StreamList extends React.Component {
     if (this.props.isSignedIn) {
       return (
         <div style={{ textAlign: "right" }}>
-          <Link to="/streams/new" className="ui button primary">
+          <Link to="/streams/new" className="ui inverted button ">
             Create Stream
           </Link>
         </div>
@@ -60,7 +65,8 @@ class StreamList extends React.Component {
   render() {
     return (
       <div>
-        <h2>Streams</h2>
+        <ImageDisplay />
+
         <div className="ui celled list">{this.renderList()}</div>
         {this.renderCreate()}
       </div>
